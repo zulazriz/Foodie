@@ -1,0 +1,119 @@
+.category_block a {
+  text-decoration: none;
+}
+.category_block li:hover {
+    background-color: #007bff;
+}
+.category_block li:hover a {
+    background-color: #007bff;
+}
+.category_block li a {
+    color: #000000;
+}
+.search-wrapper {
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  height: 50px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.search-wrapper span {
+  display: inline-block;
+  padding: 0rem 1rem;
+  font-size: 0.9rem;
+}
+
+.search-wrapper input {
+  height: 100%;
+  padding: .1rem;
+  border: none;
+  outline: none;
+}
+
+.btn1 {
+  height: 40px;
+  width: 110px;
+  border: none;
+  outline: none;
+  background-color: rgba(248, 26, 92);
+  color: white;
+  font-size: 14px;
+  border-radius: 60px;
+}
+
+.btn1:hover {
+  background-color: rgba(223, 15, 77);
+  transition: 0.5s;
+}
+
+.card:hover {
+  box-shadow: -2px -1px 25px -3px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -2px -1px 25px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px -1px 25px -3px rgba(0,0,0,0.75);
+  transition: 0.5s;
+}
+
+.title p {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.quantity {
+ display: inline-block;
+}
+
+.quantity .input-text.qty {
+ width: 40px;
+ height: 39px;
+ padding: 0 5px;
+ text-align: center;
+ /* background-color: transparent; */
+ border: 1px solid #000000;
+}
+
+.quantity.buttons_added {
+ text-align: left;
+ position: relative;
+ white-space: nowrap;
+ vertical-align: top; }
+
+.quantity.buttons_added input {
+ display: inline-block;
+ margin: 0;
+ vertical-align: top;
+ box-shadow: none;
+}
+
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus {
+ padding: 6px 12px 10px;
+ height: 39px;
+ background-color: #ffffff;
+ border: 1px solid #000000;
+ cursor:pointer;
+ font-weight: 700;
+}
+
+.quantity.buttons_added .minus {
+ border-right: 0; }
+
+.quantity.buttons_added .plus {
+ border-left: 0; }
+
+.quantity.buttons_added .minus:hover,
+.quantity.buttons_added .plus:hover {
+ background: #eeeeee; }
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ margin: 0; }
+
+ .quantity.buttons_added .minus:focus,
+.quantity.buttons_added .plus:focus {
+ outline: none; }
