@@ -32,12 +32,22 @@ include '../customer/header.php';
         <div class="card bg-light mb-3">
             <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
             <ul class="list-group category_block">
-                <li class="list-group-item"><a href="" onclick="resetSearch();">All</a></li>
-                <li class="list-group-item"><a href="">Pet Food</a></li>
-                <li class="list-group-item"><a href="">Pet Toys</a></li>
-                <li class="list-group-item"><a href="">Pet Furniture</a></li>
-                <li class="list-group-item"><a href="">Litter & Toilet</a></li>
-                <li class="list-group-item"><a href="">Fashion Assesories</a></li>
+              <li class="list-group-item"><a onclick="resetSearch()">All</a></li>
+              <?php
+
+              $category_query = "SELECT * FROM categories";
+            	$run_query = mysqli_query($conn, $category_query);
+
+            	if(mysqli_num_rows($run_query) > 0){
+            		while($row = mysqli_fetch_array($run_query)){
+            			$catid = $row["Category_ID"];
+            			$catname = $row["Category_Name"];
+
+                  echo "<li class='list-group-item' id='get_category' value='$catid'><a class='click_cat' data-id='$catname'>$catname</a></li>";
+            		}
+            	}
+
+              ?>
             </ul>
         </div>
       </div>
@@ -117,8 +127,9 @@ include '../customer/header.php';
   document.getElementById("searchResult").style.display = "none";
 
   function resetSearch(){
-    document.getElementById("searchResult").style.display = "none";
-    document.getElementById("allProduct").style.display = "block";
+    // document.getElementById("searchResult").style.display = "none";
+    // document.getElementById("allProduct").style.display = "block";
+    location.reload();
   }
 </script>
 

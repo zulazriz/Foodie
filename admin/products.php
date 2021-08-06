@@ -204,12 +204,12 @@ include '../connection.php';
                                 <label>Product Name:</label>
                                 <div class="input-group mb-3">
                                   <span class="input-group-text"><i class="las la-user"></i></span>
-                                  <input type="text" class="form-control" placeholder="Enter product name" name="prodname">
+                                  <input type="text" class="form-control" placeholder="Enter product name" name="prodname" value="'.$prodname.'">
                                 </div>
                                 <label>Product Price:</label>
                                 <div class="input-group mb-3">
                                   <span class="input-group-text"><i class="las la-dollar-sign"></i></span>
-                                  <input type="text" class="form-control" placeholder="Enter product price" name="prodprice">
+                                  <input type="text" class="form-control" placeholder="Enter product price" name="prodprice" value="'.$prodprice.'">
                                 </div>';
 
 										            $sql="SELECT * FROM categories";

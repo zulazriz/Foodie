@@ -6,9 +6,11 @@
 }
 .category_block li:hover a {
     background-color: #007bff;
+    cursor: pointer;
 }
 .category_block li a {
     color: #000000;
+    cursor: pointer;
 }
 .search-wrapper {
   border: 2px solid #ccc;

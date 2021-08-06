@@ -5,7 +5,7 @@ require_once '../connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $query = $_POST['query'];
-  $sql = "SELECT * FROM product WHERE Prod_Name LIKE '%".$query."%' LIMIT 6";
+  $sql = "SELECT * FROM product WHERE Prod_Name LIKE '%".$query."%' LIMIT 9";
   $result = mysqli_query($conn, $sql);
 
   $output = '<div class="row">

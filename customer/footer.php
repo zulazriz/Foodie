@@ -87,6 +87,7 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/quantitybutton.js"></script>
     <script src="../assets/js/search.js"></script>
+    <script src="../assets/js/category.js"></script>
 
   </body>
 </html>

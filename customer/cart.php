@@ -294,7 +294,7 @@ echo "<div class='container'>
 					<tbody>
 						<tr>
 							<th>Subtotal :</th>
-							<td>RM '.floatval($total2 + $tp).'.00</td>
+							<td>RM '.floatval($total2 + $tp).'</td>
 						</tr>
 						<tr>
 							<th>Discount :</th>
@@ -306,7 +306,7 @@ echo "<div class='container'>
 						</tr>
 						<tr class="shop-Cart-totalprice">
 							<th>Total 	 :</th>
-							<td>RM '.floatval($total2 + $tp).'.00</td>
+							<td>RM '.floatval($total2 + $tp).'</td>
 						</tr>
 					</tbody>
 				</table>
