@@ -106,7 +106,7 @@ include '../connection.php';
 													<div class="row">
 														<div class="col-md-5">
 															<p>HOW MANY CATS?</p>
-															<select class="form-select" aria-label="Default select example" name="quantityofcats">
+															<select class="form-select" aria-label="Default select example" name="quantityofcats" required>
 																<option selected value="1">1</option>
 																<option value="2">2</option>
 																<option value="3">3</option>
@@ -120,15 +120,15 @@ include '../connection.php';
 															</select>
 
 															<p class="mt-3">FROM:</p>
-															<input type="date" name="checkin" id="date1" onchange="cal()" >
+															<input type="date" name="checkin" id="date1" onchange="cal()" required>
 
 															<p class="mt-3">TO:</p>
-															<input type="date" name="checkout" id="date2" onchange="cal()">
+															<input type="date" name="checkout" id="date2" onchange="cal()" required>
 														</div>
 
 														<div class="col-md-7 ms-auto">
 															<p>WANT GROOM YOUR CATS?</p>
-										          <select class="form-select" id="groom" name="groom">
+										          <select class="form-select" id="groom" name="groom" required>
 										            <!-- <option disable selected>Choose grooming</option> -->
 										            <?php
 										              $sql="SELECT * FROM service";
