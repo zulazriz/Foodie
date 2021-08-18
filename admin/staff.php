@@ -171,25 +171,25 @@ include '../connection.php';
                           <label>Name:</label>
                           <div class="input-group mb-3">
                             <span class="input-group-text"><i class="las la-user"></i></span>
-                            <input type="text" class="form-control" placeholder="Enter name" name="sname">
+                            <input type="text" class="form-control" placeholder="Enter name" name="sname" required>
                           </div>
                           <label>Email:</label>
                           <div class="input-group mb-3">
                             <span class="input-group-text"><i class="las la-envelope"></i></span>
-                            <input type="text" class="form-control" placeholder="Enter email" name="semail">
+                            <input type="text" class="form-control" placeholder="Enter email" name="semail" required>
                           </div>
                           <label>Phone Number:</label>
                           <div class="input-group mb-3">
                             <span class="input-group-text"><i class="las la-phone"></i></span>
-                            <input type="text" maxlength="12" class="form-control" placeholder="Enter phone number" name="spnum">
+                            <input type="text" maxlength="12" class="form-control" placeholder="Enter phone number" name="spnum" required>
                           </div>
                           <label>Address:</label>
                           <div class="input-group mb-3">
                             <span class="input-group-text"><i class="la la-map-marker"></i></span>
-                            <input type="text" class="form-control" placeholder="Enter address" name="saddress">
+                            <input type="text" class="form-control" placeholder="Enter address" name="saddress" required>
                           </div>
                           <label>Gender:</label>
-                          <select class="form-select" aria-label="Default select example" name="sgender">
+                          <select class="form-select" aria-label="Default select example" name="sgender" required>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                           </select>

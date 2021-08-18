@@ -230,7 +230,8 @@ include '../connection.php';
 
     										    echo '</select>
                                 </div>
-                                <div class="wrapper mt-5">
+                                <div class="wrapper mt-2">
+                                  <label>Product Images:</label>
                                   <input type="file" name="prodimg" id="prodimg">
                                 </div>
                               </div>
@@ -256,12 +257,12 @@ include '../connection.php';
                                 <label>Product Name:</label>
                                 <div class="input-group mb-3">
                                   <span class="input-group-text"><i class="las la-user"></i></span>
-                                  <input type="text" class="form-control" placeholder="Enter product name" name="addprodname">
+                                  <input type="text" class="form-control" placeholder="Enter product name" name="addprodname" required>
                                 </div>
                                 <label>Product Price:</label>
                                 <div class="input-group mb-3">
                                   <span class="input-group-text"><i class="las la-dollar-sign"></i></span>
-                                  <input type="text" class="form-control" placeholder="Enter product price" name="addprodprice">
+                                  <input type="text" class="form-control" placeholder="Enter product price" name="addprodprice" required>
                                 </div>';
 
                                 $sql="SELECT * FROM categories";
@@ -276,13 +277,14 @@ include '../connection.php';
                                    while($catrow = mysqli_fetch_array($catquery)){
  										                $catid = isset($_GET['categories']) ? $_GET['categories'] : 0;
  										                $selected = ($catid == $catrow['Category_ID']) ? " selected" : "";
- 										                echo "<option $selected value=".$catrow['Category_ID'].">".$catrow['Category_Name']."</option>";
+ 										                echo "<option $selected value=".$catrow['Category_ID']." required>".$catrow['Category_Name']."</option>";
  										              }
 
                             echo '</select>
                                 </div>
-                                <div class="wrapper mt-5">
-                                  <input type="file" name="addprodimg" id="addprodimg">
+                                <div class="wrapper mt-2">
+                                  <label>Product Images:</label>
+                                  <input type="file" name="addprodimg" id="addprodimg" required>
                                 </div>
                               </div>
                               <div class="modal-footer d-flex justify-content-center">

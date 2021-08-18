@@ -25,11 +25,12 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `procedure_duration` (IN `v_bookingid` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `procedure_duration` (IN `v_bookingid` INT)
+BEGIN
 DECLARE  V_NIGHTS INT default 0;
 SELECT datediff(check_out,check_in)
 INTO V_NIGHTS
-FROM BOOKING 
+FROM BOOKING
 WHERE BOOKING_ID = v_bookingid;
 
 UPDATE BOOKING SET NIGHTS = V_NIGHTS WHERE BOOKING_ID = V_BOOKINGID;

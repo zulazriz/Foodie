@@ -307,26 +307,26 @@ if (isset($_SESSION['LoginUser']))
                 <label>Name:</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text"><i class="fas fa-cat"></i></span>
-                  <input type="text" class="form-control" placeholder=" Cat name" name="catname">
+                  <input type="text" class="form-control" placeholder=" Cat name" name="catname" required>
                 </div>
               </div>
               <div class="col">
                 <label>Color:</label>
                 <div class="input-group mb-3">
                   <span class="input-group-text"><i class="fas fa-palette"></i></span>
-                  <input type="text" class="form-control" placeholder=" Cat fur color" name="catcolor">
+                  <input type="text" class="form-control" placeholder=" Cat fur color" name="catcolor" required>
                 </div>
               </div>
             </div>
             <div>
               <label>Sex:</label>
-              <select class="form-select" aria-label="Default select example" name="sex">
+              <select class="form-select" aria-label="Default select example" name="sex" required>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
 
               <label class="mt-3">Breed:</label>
-              <select class="form-select" aria-label="Default select example" name="breed">
+              <select class="form-select" aria-label="Default select example" name="breed" required>
                 <?php
                   $breedquery = "SELECT * FROM breed";
                   $breedresult = mysqli_query($conn, $breedquery);
@@ -362,25 +362,25 @@ if (isset($_SESSION['LoginUser']))
           <div class="row mt-2">
             <div class="col-md-6">
               <label class="labels">First Name</label>
-              <input type="text" class="form-control" placeholder="first name" name="fname">
+              <input type="text" class="form-control" placeholder="first name" name="fname" required>
             </div>
             <div class="col-md-6">
               <label class="labels">Last Name</label>
-              <input type="text" class="form-control" placeholder="last name" name="lname">
+              <input type="text" class="form-control" placeholder="last name" name="lname" required>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-md-12">
               <label class="labels">Mobile Number</label>
-              <input type="text" class="form-control" placeholder="enter phone number" name="phonenum">
+              <input type="text" class="form-control" placeholder="enter phone number" name="phonenum" required>
             </div>
             <div class="col-md-12">
               <label class="labels">Email</label>
-              <input type="text" class="form-control" placeholder="enter email" name="email">
+              <input type="text" class="form-control" placeholder="enter email" name="email" required>
             </div>
             <div class="col-md-12">
               <label class="labels">Address</label>
-              <input type="text" class="form-control" placeholder="enter address" name="address">
+              <input type="text" class="form-control" placeholder="enter address" name="address" required>
             </div>
           </div>
         </div>

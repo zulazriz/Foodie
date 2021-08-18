@@ -83,7 +83,7 @@ include '../customer/header.php';
                     if (isset($_SESSION["LoginUser"])) {
                       echo '<div class="row">
                                 <div class="col-5 quantity buttons_added">
-                                  <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantityproduct" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                                  <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="99" name="quantityproduct" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
                                 </div>
                                 <div class="col">
                                   <button type="submit" class="btn1" name="submitproduct"><i class="fas fa-shopping-cart"></i> Add to cart</button>

@@ -97,6 +97,24 @@ if (isset($_SESSION['LoginUser']))
 
 <?php
 
+// $custquery = "SELECT * FROM customer WHERE Cust_ID = $custid";
+// $custresult = mysqli_query($conn, $custquery);
+//
+// while ($row = mysqli_fetch_array($custresult)) {
+// 	$fname = $row['Cust_Fname'];
+// 	$lname = $row['Cust_Lname'];
+// 	$address = $row['Cust_Address'];
+// 	$email = $row['Cust_Email'];
+// 	$pnum = $row['Cust_PhoneNo'];
+//
+// 	echo "<input type='hidden' value='".$custid."' id='custid'>
+// 				<input type='hidden' value='".$fname."' id='fname'>
+// 				<input type='hidden' value='".$lname."' id='lname'>
+// 				<input type='hidden' value='".$address."' id='address'>
+// 				<input type='hidden' value='".$email."' id='email'>
+// 				<input type='hidden' value='".$pnum."' id='pnum'>";
+// }
+
 echo "<div class='container'>
 				<div class='row'>
 					<h1 class='text-center'>CART</h1>
@@ -293,41 +311,48 @@ echo "<div class='container'>
 				<table class="table table-border checkout-table">
 					<tbody>
 						<tr>
-							<th>Subtotal :</th>
+							<th>Product Total :</th>
 							<td>RM '.floatval($total2 + $tp).'</td>
-						</tr>
-						<tr>
-							<th>Discount :</th>
-							<td>RM '.$discount.'</td>
 						</tr>
 						<tr>
 							<th>Delivery Charges :</th>
 							<td>Free</td>
 						</tr>
 						<tr class="shop-Cart-totalprice">
-							<th>Total 	 :</th>
+							<th>Payment Total 	 :</th>
 							<td>RM '.floatval($total2 + $tp).'</td>
 						</tr>
 					</tbody>
 				</table>
-				<input type="hidden" name="total2" value='.floatval($total2 + $tp).'">
-				<div class="text-center">
-					<button type="submit" class="btn btn-lg btn-round btn-primary" name="pay">Pay</button>
-				</div>
+				<input type="hidden" name="total2" value='.floatval($total2 + $tp).' id="total">
+				<div id="paypal-button-container"></div>
 			</div>
 		</div>
 	</div>
 </form>
 </div>';
 
+// <div class="text-center">
+// 	<button type="submit" class="btn btn-lg btn-round btn-primary" name="pay">Pay</button>
+// </div>
+
 // <button type="submit" class="btn btn-lg btn-round btn-primary" name="pay">Pay</button>
 // <div id="paypal-payment-button" type="submit" name="pay"></div>
 
 // Modal Update Booking
-$test = mysqli_query($conn, "SELECT * FROM booking WHERE Cust_ID = $custid");
+$test = mysqli_query($conn, "SELECT book.Cust_ID, book.Booking_ID, book.QuantityofCats, book.Check_in, book.Check_out, book.Remarks, book.Serv_ID, service.Serv_ID, service.Serv_Name
+														 FROM booking book
+														 INNER JOIN service service
+														 WHERE book.Cust_ID = $custid
+														 AND book.Serv_ID = service.Serv_ID");
 while ($row = mysqli_fetch_assoc($test)) {
 
 	$bookingid = $row['Booking_ID'];
+	$quancat = $row['QuantityofCats'];
+	$date1 = $row['Check_in'];
+	$date2 = $row['Check_out'];
+	$remarks = $row['Remarks'];
+	$groom = $row['Serv_Name'];
 
 	echo '<div id="modalUpdate'.$bookingid.'" class="modal fade" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -363,7 +388,8 @@ while ($row = mysqli_fetch_assoc($test)) {
 											<div class="col-md-5">
 												<p>HOW MANY CATS?</p>
 												<select class="form-select" aria-label="Default select example" name="quantityofcats">
-													<option selected value="1">1</option>
+													<option selected value="'.$quancat.'" disabled>'.$quancat.'</option>
+													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
 													<option value="4">4</option>
@@ -376,10 +402,10 @@ while ($row = mysqli_fetch_assoc($test)) {
 												</select>
 
 												<p class="mt-3">FROM:</p>
-												<input type="date" name="checkin" id="date1" onchange="cal()" >
+												<input type="date" name="checkin" id="date1" onchange="cal()" value="'.$date1.'">
 
 												<p class="mt-3">TO:</p>
-												<input type="date" name="checkout" id="date2" onchange="cal()">
+												<input type="date" name="checkout" id="date2" onchange="cal()" value="'.$date2.'">
 											</div>
 
 											<div class="col-md-7 ms-auto">
@@ -400,7 +426,7 @@ while ($row = mysqli_fetch_assoc($test)) {
 									 echo'</select>
 												<div class="form-group mt-3">
 													<p>REMARKS:</p>
-													<textarea class="form-control" name="remarks" rows="5"></textarea>
+													<textarea class="form-control" name="remarks" rows="5">'.$remarks.'</textarea>
 												</div>
 											</div>
 										</div>
@@ -422,6 +448,7 @@ $produp = mysqli_query($conn, "SELECT * FROM product_cart WHERE Cust_ID = $custi
 while ($row2 = mysqli_fetch_assoc($produp)) {
 
 	$cartid = $row2['Cart_ID'];
+	$quantity = $row2['Quantity'];
 
 	echo '<div id="modalUpdate2'.$cartid.'" class="modal fade" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -437,7 +464,7 @@ while ($row2 = mysqli_fetch_assoc($produp)) {
 										<div class="row">
 											<div class="col text-center">
 												<p>Quantity</p>
-												<input type="number" name="quantityproduct" value="1" min="1" max="99" style="width: 70px; height: 33px; text-align: center;">
+												<input type="number" name="quantityproduct" value="'.$quantity.'" min="1" max="99" style="width: 70px; height: 33px; text-align: center;">
 											</div>
 										</div>
 									</div>
@@ -453,7 +480,7 @@ while ($row2 = mysqli_fetch_assoc($produp)) {
 }
 
 ?>
-<script src="https://www.paypal.com/sdk/js?client-id=AZmX36Ji6dsz7SEQPGj0EqRMpGGCRc0Y-9zhxfLLFr6wksDNRnm4H4XRn7r3BZ9keHj0_LW0zF-9R9VB&disable-funding=credit,card"></script>
+
 <script src="../assets/js/paypal.js"></script>
 
 <?php
