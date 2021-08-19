@@ -388,7 +388,7 @@ while ($row = mysqli_fetch_assoc($test)) {
 											<div class="col-md-5">
 												<p>HOW MANY CATS?</p>
 												<select class="form-select" aria-label="Default select example" name="quantityofcats">
-													<option selected value="'.$quancat.'" disabled>'.$quancat.'</option>
+													<option selected value="'.$quancat.'">'.$quancat.'</option>
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
@@ -416,9 +416,9 @@ while ($row = mysqli_fetch_assoc($test)) {
 												$result3 = mysqli_query($conn, $query3);
 												while ($row = mysqli_fetch_array($result3)) {
 													$groomid = isset($_GET['service']) ? $_GET['service'] : 0;
-													$selected = ($groomid == $row['Serv_ID']) ? " selected" : "";
 													$groomid = $row['Serv_ID'];
 													$groomname = $row['Serv_Name'];
+													$selected = ($groom == $groomname) ? " selected" : "";
 
 													echo '<option '.$selected.' value="'.$groomid.'">'.$groomname.'</option>';
 												}
