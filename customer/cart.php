@@ -367,7 +367,7 @@ while ($row = mysqli_fetch_assoc($test)) {
 								<div class="modal-body">
 									<div class="mt-2 text-center">
 										<h2>Premium Room</h2>
-										<h4>RM 150.00</h4>
+										<h4>RM 30.00</h4>
 									</div>
 
 									<div class="text-center mt-5">

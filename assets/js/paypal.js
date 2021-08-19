@@ -42,6 +42,7 @@ paypal.Buttons({
   },
   onApprove:function(data, actions) {
     return actions.order.capture().then(function(details) {
+
       /* Get from elements values */
      var values = $(this).serialize();
      var total = document.getElementById('total').value;
@@ -57,8 +58,6 @@ paypal.Buttons({
                console.log(textStatus, errorThrown);
             }
         });
-      // console.log(details)
-      // window.location.replace("../include/paymentsuccessfully.php")
     })
   },
   onCancel:function(data) {
