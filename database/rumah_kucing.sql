@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2021 at 08:04 PM
+-- Generation Time: Aug 22, 2021 at 07:38 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -25,12 +25,11 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `procedure_duration` (IN `v_bookingid` INT)
-BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `procedure_duration` (IN `v_bookingid` INT)  BEGIN
 DECLARE  V_NIGHTS INT default 0;
 SELECT datediff(check_out,check_in)
 INTO V_NIGHTS
-FROM BOOKING
+FROM BOOKING 
 WHERE BOOKING_ID = v_bookingid;
 
 UPDATE BOOKING SET NIGHTS = V_NIGHTS WHERE BOOKING_ID = V_BOOKINGID;
@@ -75,7 +74,7 @@ CREATE TABLE `booking` (
   `Check_out` date NOT NULL,
   `Remarks` varchar(500) NOT NULL,
   `Serv_ID` int(10) NOT NULL,
-  `Nights` int(10) DEFAULT NULL,
+  `Nights` int(10) NOT NULL,
   `QuantityofBooking` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -87,7 +86,7 @@ INSERT INTO `booking` (`Booking_ID`, `Cust_ID`, `Room_ID`, `QuantityofCats`, `Bo
 (42, 1, 1, 3, '2021-06-14', 'Paid', '2021-06-15', '2021-06-18', 'Angry', 2, 3, 1),
 (56, 7, 1, 2, '2021-06-16', 'Pending', '2021-06-17', '2021-06-20', 'Always hungry', 3, 3, 1),
 (57, 7, 1, 3, '2021-06-16', 'Pending', '2021-06-28', '2021-06-30', '', 1, 2, 1),
-(58, 1, 1, 1, '2021-06-28', 'Pending', '2021-07-13', '2021-07-15', '', 1, 2, 1);
+(58, 1, 1, 1, '2021-08-15', 'Paid', '2021-08-19', '2021-08-23', 'Lapar', 1, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -170,7 +169,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`Cust_ID`, `Cust_Fname`, `Cust_Lname`, `Cust_PhoneNo`, `Cust_Email`, `Cust_DOB`, `Cust_Address`, `Cust_Gender`, `Cust_Password`, `Images_Name`, `Images_Location`, `Images_Datatype`, `Token`, `Create_at`) VALUES
-(1, 'Zul', 'azri', '01121258100', 'zulazrizulkarnain@gmail.com', '1999-01-03', 'no 8 tu 10 taman tasik utama', 'Male', '$2y$10$s1J7nhEixnvmXj.Rsq2wsOAvDqCNSe1tPtJAOKWhEe6BIVh0DW2Ru', 'donut.png', '../images/user profile picture/donut.png', 0x646f6e75742e706e67, '160d9d5392ca85', '2021-01-17 09:34:19'),
+(1, 'Zulazri', 'Zulkarnain', '01133062575', 'zulazrizulkarnain@gmail.com', '1999-01-03', 'No 68 Jalan TU 22', 'Male', '$2y$10$s1J7nhEixnvmXj.Rsq2wsOAvDqCNSe1tPtJAOKWhEe6BIVh0DW2Ru', 'jisoo.webp', '../images/user profile picture/jisoo.webp', 0x6a69736f6f2e77656270, '160d9d5392ca85', '2021-01-17 09:34:19'),
 (2, 'Rashida', 'Arisya', '01119970966', 'shidarisya@gmail.com', '1999-08-02', 'Lot 123, Taman Melati', 'Female', '$2y$10$xMSkO4UPxwzyJQ9vABCGJOvspT88RvfoICxU/R7uS18jLtntl3SIC', '', '../images/user profile picture/default_profile.png', '', '', '2021-01-17 10:23:19'),
 (3, 'Nur Fatini Amirah', 'Saad', '01110344140', 'fatiniamirah39@gmail.com', '1999-09-03', '23, Jalan Seri Pagi 27, SU', 'Female', '$2y$10$l9wkPyVvJAtS..ZlKdhoCevQSG8tI7jnP46kJMxR.o3l2CNbQAD4y', '', '../images/user profile picture/default_profile.png', '', '', '2021-01-17 11:06:34'),
 (4, 'Siti Hajar', 'Mohd Taufek', '01918273645', 'hajar@gmail.com', '1997-05-05', 'Parit Buntar, Perak', 'Female', '$2y$10$uQCRbb0KejywWjvi2ecdCulmtuFABOdfHpRU9x0m0RevVtku.vMqW', '', '../images/user profile picture/default_profile.png', '', '', '2021-01-18 11:28:45'),
@@ -201,7 +200,13 @@ INSERT INTO `payment` (`Payment_ID`, `Cust_ID`, `Total`, `Payment_Timestamp`) VA
 (26, 1, '100.00', '2021-06-26 18:35:15'),
 (27, 1, '100.00', '2021-06-26 18:57:47'),
 (28, 1, '0.00', '2021-06-26 18:57:57'),
-(29, 1, '475.00', '2021-06-27 02:05:55');
+(29, 1, '475.00', '2021-06-27 02:05:55'),
+(30, 1, '0.00', '2021-08-18 17:40:11'),
+(31, 1, '0.00', '2021-08-18 17:46:51'),
+(32, 1, '0.00', '2021-08-18 17:50:15'),
+(33, 1, '0.00', '2021-08-18 17:52:41'),
+(34, 1, '17.99', '2021-08-18 17:59:54'),
+(35, 1, '24.79', '2021-08-18 18:01:14');
 
 -- --------------------------------------------------------
 
@@ -227,7 +232,8 @@ INSERT INTO `pet` (`Pet_ID`, `Cust_ID`, `Pet_Name`, `Pet_Colour`, `Pet_Sex`, `Br
 (3, 1, 'Momo', 'Pink', 'Male', 14),
 (4, 1, 'Mimi', 'Yellow', 'Female', 12),
 (13, 7, 'Oyen', 'orange', 'Male', 1),
-(18, 1, 'Tompok', 'black and white', 'Male', 8);
+(18, 1, 'Tompok', 'black and white', 'Male', 8),
+(19, 1, 'asd', 'black', 'Male', 1);
 
 -- --------------------------------------------------------
 
@@ -249,8 +255,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`Prod_ID`, `Category_ID`, `Prod_Name`, `Prod_Price`, `Prod_Status`, `Prod_Images`) VALUES
-(1, 1, 'Royal Canin Fit 32', '70.00', 'Not available', '../images/products/rc_fit_32.png'),
-(2, 1, 'Royal Canin Hairball', '70.00', 'Not available', '../images/products/rc_hairball.png'),
+(1, 1, 'Royal Canin Fit 32', '70.00', 'Available', '../images/products/rc_fit_32.png'),
+(2, 1, 'Royal Canin Hairball', '70.00', 'Available', '../images/products/rc_hairball.png'),
 (3, 1, 'Royal Canin Bengal', '50.00', 'Available', '../images/products/rc_bengal.png'),
 (4, 1, 'Royal Canin Urinary', '90.00', 'Available', '../images/products/rc_urinary.png'),
 (5, 1, 'Royal Canin Babycat', '20.00', 'Available', '../images/products/rc_mother&babycat.png'),
@@ -323,9 +329,13 @@ INSERT INTO `product_cart` (`Cart_ID`, `Cust_ID`, `Prod_ID`, `Prod_Name`, `Prod_
 (23, 7, 3, 'Royal Canin Bengal', '50.00', 1, '50.00', 'Pending'),
 (24, 7, 4, 'Royal Canin Urinary', '90.00', 1, '90.00', 'Pending'),
 (25, 7, 3, 'Royal Canin Bengal', '50.00', 5, '250.00', 'Pending'),
-(26, 7, 3, 'Royal Canin Bengal', '50.00', 1, '50.00', 'Pending'),
-(27, 7, 3, 'Royal Canin Bengal', '50.00', 1, '50.00', 'Pending'),
-(46, 1, 42, 'Litter Box Scoop Set', '15.99', 1, '15.99', 'Pending');
+(46, 1, 42, 'Litter Box Scoop Set', '15.99', 3, '47.97', 'Paid'),
+(48, 1, 44, 'Candyfloss Pink Collar', '17.99', 2, '35.98', 'Paid'),
+(49, 1, 44, 'Candyfloss Pink Collar', '17.99', 2, '35.98', 'Paid'),
+(50, 1, 44, 'Candyfloss Pink Collar', '17.99', 2, '35.98', 'Paid'),
+(51, 1, 44, 'Candyfloss Pink Collar', '17.99', 2, '35.98', 'Paid'),
+(52, 1, 43, 'Cheshire Wain Rigby', '24.79', 1, '24.79', 'Paid'),
+(54, 1, 44, 'Candyfloss Pink Collar', '17.99', 1, '17.99', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -347,7 +357,7 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`Room_ID`, `Room_Type`, `Room_Status`, `Room_Price`, `Room_Slot`, `Room_Images`) VALUES
-(1, 'Premium Room', 'Available', '30.00', 34, '../images/room1.jpg');
+(1, 'Premium Room', 'Available', '30.00', 50, '../images/room1.jpg');
 
 -- --------------------------------------------------------
 
@@ -496,7 +506,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `Booking_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `Booking_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `breed`
@@ -520,25 +530,25 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `Payment_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `Payment_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `Pet_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Pet_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `Prod_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `Prod_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `product_cart`
 --
 ALTER TABLE `product_cart`
-  MODIFY `Cart_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `Cart_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `room`
@@ -556,7 +566,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `Staff_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Staff_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

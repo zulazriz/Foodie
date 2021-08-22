@@ -26,7 +26,7 @@
 // 	die('Failed to connect to MySQL: '.mysqli_connect_error());
 // }
 
-$host = 'z5zm8hebixwywy9d.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	';
+$host = 'z5zm8hebixwywy9d.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
 $username = 'h14ty5dq8nv37o2a';
 $password = 'q9o6ipjho97x5drh';
 $db_name = 'rr4ns5h0shlq0pm5';
