@@ -2109,6 +2109,7 @@ input, select, textarea {
 			border: solid 1px #c9c9c9;
 			border-left: 0;
 			border-right: 0;
+
 		}
 
 			table tbody tr:nth-child(2n + 1) {

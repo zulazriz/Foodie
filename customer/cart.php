@@ -307,11 +307,11 @@ echo "<div class='container'>
 	<div class="row mt-70">
 		<div class="col-sm-5 col-sm-offset-7">
 			<div class="shop-Cart-totalbox">
-				<h4 class="font-alt mt-5">Total</h4>
+				<h4 class="font-alt mt-5">Cart Total</h4>
 				<table class="table table-border checkout-table">
 					<tbody>
 						<tr>
-							<th>Product Total :</th>
+							<th>Subtotal :</th>
 							<td>RM '.floatval($total2 + $tp).'</td>
 						</tr>
 						<tr>

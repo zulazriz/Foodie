@@ -66,6 +66,7 @@
 								echo "<li><a href='../index.php?Id=$custid&User=$fname $lname' class='text-decoration-none'>Home</a></li>
           						<li><a href='../customer/boarding.php?Id=$custid&User=$fname $lname' class='text-decoration-none'>Cat Boarding</a></li>
                       <li><a href='../customer/products.php?Id=$custid&User=$fname $lname' class='text-decoration-none'>Products</a></li>
+                      <li><a href='../customer/history.php?Id=$custid&User=$fname $lname' class='text-decoration-none'>Transaction History</a></li>
           						<li><a href='../customer/about.php?Id=$custid&User=$fname $lname' class='text-decoration-none'>About Us</a></li>
 
                       <div class='mt-5'>
