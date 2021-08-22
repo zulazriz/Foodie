@@ -95,6 +95,8 @@ if (isset($_POST['bookslot']))
                             {
                                 echo '<script type="text/javascript">alert("Something went wrong!");location="../customer/boarding.php";</script>';
                             }
+                        }else {
+                          echo "apa ni babi";
                         }
                     }
                     else
