@@ -35,7 +35,7 @@ $db_name = 'rr4ns5h0shlq0pm5';
 $conn = mysqli_init();
 mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
 
-if (mysqli_connect_errno($conn)) {
+if (mysqli_connect_errno()) {
 	die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ?>
