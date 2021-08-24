@@ -7,6 +7,7 @@ This project come with admin module which is can manage the staff, manage produc
 
 Here the step to use this project:
 
+
 **1. Download XAMPP and install it.**
 **2. Download this project and extract to "C:\xampp\htdocs\".**
 **3. Open XAMPP Control Panel.**
