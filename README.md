@@ -1,6 +1,6 @@
 # **Hello there!**
 
-![Rumah Kucing](https://github.com/zulazriz/Rumah-Kucing/blob/master/images/rumah%20kucing2.jpg).
+  ![Rumah Kucing](https://github.com/zulazriz/Rumah-Kucing/blob/master/images/rumah%20kucing2.jpg).
 
 # INTRODUCTION
 This is my first php project, actually this project is for my final year project(FYP).
