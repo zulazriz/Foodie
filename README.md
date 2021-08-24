@@ -1,6 +1,6 @@
 **Hello there!**
 
-![alt text](images/rumah kucing2.jpg)
+![alt text](/images/rumah kucing2.jpg)
 
 # INTRODUCTION
 This is my first php project, actually this project is for my final year project(FYP).
