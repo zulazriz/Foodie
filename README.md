@@ -15,6 +15,6 @@ This project come with admin module which is can manage the staff, manage produc
 5. Open browser and go to PhpMyAdmin database.
 6. Create a database name it "rumah_kucing".
 7. Import the sql file from database folder.
-8. Open another tab from your browser and search "https://localhost/Rumah Kucing/".
+8. Open another tab from your browser and search https://localhost/Rumah Kucing/.
 9. And there you have homepage for the website.
 10. Enjoy and thank you!
