@@ -16,5 +16,5 @@ This project come with admin module which is can manage the staff, manage produc
 6. Create a database name it "rumah_kucing".
 7. Import the sql file from database folder.
 8. Open another tab from your browser and search https://localhost/ThisProjectFolderNameOnHtdocs/.
-9. And there you have homepage for the website.
+9. Or you can access by using my link [HEROKU Rumah Kucing](http://rumah-kucing.herokuapp.com/)
 10. Enjoy and thank you!
