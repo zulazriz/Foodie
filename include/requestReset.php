@@ -30,7 +30,7 @@ if (isset($_POST['reset'])) {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'thefourpawss@gmail.com';
-        $mail->Password   = 'workshopgroup15';
+        $mail->Password   = '@Thefourpaws';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
